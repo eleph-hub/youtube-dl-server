@@ -21,6 +21,7 @@ app_defaults = {
     'YDL_ARCHIVE_FILE': None,
     'YDL_SERVER_HOST': '0.0.0.0',
     'YDL_SERVER_PORT': 8080,
+    'YDL_WRITE_SUBTITLES': True,
 }
 
 
@@ -110,6 +111,7 @@ def get_ydl_options(request_options):
         })
 
     return {
+        'writesubtitles': ydl_vars['YDL_WRITE_SUBTITLES'], 
         'format': ydl_vars['YDL_FORMAT'],
         'postprocessors': postprocessors,
         'outtmpl': ydl_vars['YDL_OUTPUT_TEMPLATE'],
