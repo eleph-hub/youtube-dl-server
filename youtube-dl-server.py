@@ -110,8 +110,12 @@ def get_ydl_options(request_options):
             'preferedformat': ydl_vars['YDL_RECODE_VIDEO_FORMAT'],
         })
 
+    postprocessors.append({'key': 'FFmpegMetadata'})
+    postprocessors.append({'key': 'FFmpegEmbedSubtitle'})
+
     return {
-        'writesubtitles': ydl_vars['YDL_WRITE_SUBTITLES'], 
+        'writesubtitles': ydl_vars['YDL_WRITE_SUBTITLES'],
+        'verbose': True, 
         'format': ydl_vars['YDL_FORMAT'],
         'postprocessors': postprocessors,
         'outtmpl': ydl_vars['YDL_OUTPUT_TEMPLATE'],
