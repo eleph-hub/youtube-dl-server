@@ -30,6 +30,11 @@ def dl_queue_list():
     return static_file('index.html', root='./')
 
 
+@app.route('/favicon.ico')
+def get_favicon():
+    return server_static('favicon.ico')
+
+
 @app.route('/youtube-dl/')
 @app.route('/')
 def redirectToCorrectIndexURL():
