@@ -15,6 +15,7 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app/
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
+RUN pip install --upgrade youtube-dl
 
 COPY . /usr/src/app
 #COPY ./etc/youtube-dl.conf /etc/youtube-dl.conf
