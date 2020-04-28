@@ -61,8 +61,10 @@ def q_put():
     if not url:
         return {"success": False, "error": "/q called without a 'url' query param"}
 
-    dl_q.put((url, options))
-    print("Added url " + url + " to the download queue")
+    for singleURL in url.split():
+        dl_q.put((singleURL, options))
+        print("Added url " + singleURL + " to the download queue")
+    
     return {"success": True, "url": url, "options": options}
 
 @app.route("/youtube-dl/update", method="GET")
